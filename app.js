@@ -3,5 +3,11 @@ let phoneQuantity = parseInt(phoneInfo.value);
 document.getElementById('phone-plus').addEventListener('click',function(){
     phoneQuantity++;
     phoneInfo.value = phoneQuantity;
-    console.log(phoneQuantity);
+})
+//Negative button
+document.getElementById('phone-minus').addEventListener('click',function(){
+    if(phoneQuantity > 0){
+        phoneQuantity--;
+        phoneInfo.value = phoneQuantity;
+    }
 })
