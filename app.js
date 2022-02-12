@@ -1,13 +1,23 @@
-let phoneInfo = document.getElementById('phone');
-let phoneQuantity = parseInt(phoneInfo.value);
-document.getElementById('phone-plus').addEventListener('click',function(){
-    phoneQuantity++;
-    phoneInfo.value = phoneQuantity;
-})
-//Negative button
-document.getElementById('phone-minus').addEventListener('click',function(){
-    if(phoneQuantity > 0){
-        phoneQuantity--;
-        phoneInfo.value = phoneQuantity;
+function updateQuantity(isAdd){
+    let phoneInfo = document.getElementById('phone');
+    let phoneQuantity = parseInt(phoneInfo.value);
+    if(isAdd){
+        phoneQuantity++
     }
+    else{
+        if(phoneQuantity > 0){
+            phoneQuantity--;
+        }
+        else{
+            alert('sorry');
+        }
+    }
+    phoneInfo.value = phoneQuantity;
+}
+document.getElementById('phone-plus').addEventListener('click',function(){
+    updateQuantity(true)
 })
+document.getElementById('phone-minus').addEventListener('click',function(){
+    updateQuantity(false)
+})
+
