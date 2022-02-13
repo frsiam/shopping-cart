@@ -1,36 +1,36 @@
-function updateQuantity(item,isAdd){
-    let phoneInfo = document.getElementById(item);
-    let phoneQuantity = parseInt(phoneInfo.value);
+function updateQuantity(item,price,isAdd){
+    let productInfo = document.getElementById(item);
+    let productQuantity = parseInt(productInfo.value);
 
-    let phoneOutput = document.getElementById(item +'-total');
-    let phonePrice = parseFloat(phoneOutput.innerText);
+    let productOutput = document.getElementById(item +'-total');
+    let productPrice = parseFloat(productOutput.innerText);
     if(isAdd){
-        phoneQuantity++
-        phonePrice = 1219 * phoneQuantity;
+        productQuantity++
+        productPrice = price * productQuantity;
     }
     else{
-        if(phoneQuantity > 0){
-            phoneQuantity--;
-            phonePrice = 1219 * phoneQuantity;
+        if(productQuantity > 0){
+            productQuantity--;
+            productPrice = price * productQuantity;
         }
         else{
             alert('sorry');
         }
     }
-    phoneInfo.value = phoneQuantity;
-    phoneOutput.innerText = phonePrice;
+    productInfo.value = productQuantity;
+    productOutput.innerText = productPrice;
 }
 // handle phone increase decrease events
 document.getElementById('phone-plus').addEventListener('click',function(){
-    updateQuantity('phone',true)
+    updateQuantity('phone',1219,true)
 })
 document.getElementById('phone-minus').addEventListener('click',function(){
-    updateQuantity('phone',false)
+    updateQuantity('phone',1219,false)
 })
 // handle case increase decrease events
 document.getElementById('case-plus').addEventListener('click',function(){
-    updateQuantity('case',true)
+    updateQuantity('case',59,true)
 })
 document.getElementById('case-minus').addEventListener('click',function(){
-    updateQuantity('case',false)
+    updateQuantity('case',59,false)
 })
