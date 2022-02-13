@@ -1,8 +1,8 @@
-function updateQuantity(isAdd){
-    let phoneInfo = document.getElementById('phone');
+function updateQuantity(item,isAdd){
+    let phoneInfo = document.getElementById(item);
     let phoneQuantity = parseInt(phoneInfo.value);
 
-    let phoneOutput = document.getElementById('phone-total');
+    let phoneOutput = document.getElementById(item +'-total');
     let phonePrice = parseFloat(phoneOutput.innerText);
     if(isAdd){
         phoneQuantity++
@@ -20,10 +20,17 @@ function updateQuantity(isAdd){
     phoneInfo.value = phoneQuantity;
     phoneOutput.innerText = phonePrice;
 }
+// handle phone increase decrease events
 document.getElementById('phone-plus').addEventListener('click',function(){
-    updateQuantity(true)
+    updateQuantity('phone',true)
 })
 document.getElementById('phone-minus').addEventListener('click',function(){
-    updateQuantity(false)
+    updateQuantity('phone',false)
 })
-
+// handle case increase decrease events
+document.getElementById('case-plus').addEventListener('click',function(){
+    updateQuantity('case',true)
+})
+document.getElementById('case-minus').addEventListener('click',function(){
+    updateQuantity('case',false)
+})
