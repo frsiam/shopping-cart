@@ -19,7 +19,20 @@ function updateQuantity(item,price,isAdd){
     }
     productInfo.value = productQuantity;
     productOutput.innerText = productPrice;
+    console.log(totalCalculation());
 }
+
+function itemTotal(item,itemPrice){
+    let productInfo = document.getElementById(item);
+    let productQuantity = parseInt(productInfo.value);
+    let productTotal =  productQuantity * itemPrice;
+    return productTotal;
+}
+function totalCalculation(){
+    const subTotal = itemTotal('phone',1219) + itemTotal('case',59);
+    return subTotal;
+}
+
 // handle phone increase decrease events
 document.getElementById('phone-plus').addEventListener('click',function(){
     updateQuantity('phone',1219,true)
